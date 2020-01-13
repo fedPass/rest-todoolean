@@ -17,7 +17,9 @@
                 <input id="new-text-todo" type="text" value="" placeholder="Inserisci testo...">
                 <button id="new-todo-button"><i class="fas fa-plus"></i></button>
             </div>
-            <ul id="todo_list"></ul>
+            <div id="list-container">
+                <ul id="todo_list"></ul>
+            </div>
         </div>
         <script id="todo-template" type="text/x-handlebars-template">
             <li data-todo_id="{{ todo_id }}">

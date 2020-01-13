@@ -43,12 +43,38 @@ $(document).ready(function(){
     });
 
     //quando clicco su SALVA
-    //scompare icona SALVA
-    //compare icona MODIFICA
-    //leggo nuovo testo
-    //chiamata ajax con PUT a cui passo id e testo per modificarlo
+    $(document).on('click', '.save-todo', function(){
+        //recuperare l'id del todo selezionato
+        var todo_id = $(this).parent().attr('data-todo_id');
+        //leggo nuovo testo
+        var edit_todo = $(this).parent().find('.input-edit-todo').val();
+        //scompare icona SALVA
+        $(this).parent().find('.save-todo').hide();
+        //compare icona MODIFICA
+        $(this).parent().find('.edit-todo').show();
+
+        modifica_todo(todo_id, edit_todo);
+    });
 
     //---------FUNZIONI--------------
+
+    function modifica_todo(id_todo, newText_todo){
+        //chiamata ajax con PUT a cui passo id e testo per modificarlo
+        $.ajax({
+            'url': api_url + '/' + id_todo,
+            'method':'PUT',
+            'data': {
+                'text': newText_todo
+            },
+            'success': function(){
+                //stampo lista aggiornata
+                stampa_todos();
+            },
+            'error': function(){
+                alert('Error');
+            }
+        });
+    }
 
     function cancella_todo(id_todo){
         // chiamata ajax in DELETE per cancellare id selezionato
@@ -87,7 +113,7 @@ $(document).ready(function(){
     function stampa_todos(){
         //resetto la Lista
         $('#todo_list').empty();
-        //chiamata ajax per recuperare lista
+        //chiamata ajax in GET per recuperare lista
         $.ajax({
             'url':api_url,
             'method': 'GET',
