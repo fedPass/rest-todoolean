@@ -21,6 +21,25 @@ $(document).ready(function(){
         }
     });
 
+    //quando premo invio inserisco nuovo todo
+    $('#new-text-todo').keypress(function(){
+        if (event.which == 13) {
+            //leggo il testo inserito
+            var typed_todo = $('#new-text-todo').val().trim();
+            //e resetto il campo
+            $('#new-text-todo').val('');
+            //se il campo è vuoto do un avviso di errore
+            if (typed_todo.length == 0) {
+                alert('Inserisci un testo')
+            } else {
+                //altrimenti inserisci nuovo todo
+                crea_todo(typed_todo);
+            }
+        }
+    });
+
+
+
     //quando clicco su icona bidone DELETE todo
     $(document).on('click', '.delete-todo', function(){
         //recuperare l'id del todo selezionato
