@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     stampa_todos();
 
-    //quando clicco su button INSERISCI inserisco nuovo todo
+    //quando clicco su button + inserisco nuovo todo
     $('#new-todo-button').click(function(){
         //leggo il testo inserito
         var typed_todo = $('#new-text-todo').val().trim();
@@ -38,8 +38,6 @@ $(document).ready(function(){
         }
     });
 
-
-
     //quando clicco su icona bidone DELETE todo
     $(document).on('click', '.delete-todo', function(){
         //recuperare l'id del todo selezionato
@@ -49,6 +47,11 @@ $(document).ready(function(){
 
     //quando clicco su modifica
     $(document).on('click', '.edit-todo', function(){
+        //controllo che sia possibile modifica solo un campo alla volta
+        $('.text-todo').show();
+        $('.input-edit-todo').hide();
+        $('.edit-todo').show();
+        $('.save-todo').hide();
         //recuperare l'id del todo selezionato
         var todo_id = $(this).parent().attr('data-todo_id');
         //appare icona SALVA
