@@ -14,7 +14,7 @@
         <div class="container">
             <h1>Lista To-do</h1>
             <div id="insert_new">
-                <input id="new-text-todo" type="text" value="" placeholder="Inserisci testo...">
+                <input id="new-text-todo" type="text" value="" placeholder="Inserisci nuovo punto...">
                 <button id="new-todo-button"><i class="fas fa-plus"></i></button>
             </div>
             <div id="list-container">
@@ -23,7 +23,7 @@
         </div>
         <script id="todo-template" type="text/x-handlebars-template">
             <li data-todo_id="{{ todo_id }}">
-                <i class="fas fa-trash-alt delete-todo"></i>
+                <i text="Cancella" class="fas fa-trash-alt delete-todo"></i>
                 <i class="fas fa-edit edit-todo"></i>
                 <i class="fas fa-save save-todo"></i>
                 <span class="text-todo">{{todo_text}}</span>

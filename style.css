@@ -12,6 +12,7 @@ body {
 
 i {
     color: #3333c9;
+    margin: 5px;
 }
 
 .container {
@@ -30,6 +31,9 @@ h1 {
 
 #insert_new {
     text-align: center;
+    border-bottom: 1px solid #3333c9;
+    border-top: 1px solid #3333c9;
+    padding: 10px 0;
 }
 
 #new-todo-button {
@@ -40,6 +44,8 @@ h1 {
 
 #list-container {
     display: flex;
+    justify-content: center;
+    margin-left: -40px;
 }
 
 #todo_list {
