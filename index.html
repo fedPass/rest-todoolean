@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CRUD REST API</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Lista To-do</h1>
+            <div id="insert_new">
+                <input id="new-text-todo" type="text" value="" placeholder="Inserisci testo...">
+                <button id="new-todo-button">Inserisci</button>
+            </div>
+            <ul id="todo_list"></ul>
+        </div>
+        <script id="todo-template" type="text/x-handlebars-template">
+            <li data-todo_id="{{ todo_id }}">
+                {{todo_text}}
+            </li>
+        </script>
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>

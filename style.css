@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(342deg, rgba(255,255,255,1) 1%, rgba(239,237,231,1) 21%, rgba(165,164,164,1) 100%);
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #fbfbfb;
+}
+
+h1 {
+    padding-bottom: 15px;
+}
+
+#todo_list {
+    padding-top: 15px;
+    padding-inline-start: 40px;
+}
