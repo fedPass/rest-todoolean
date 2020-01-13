@@ -5,8 +5,7 @@
 }
 
 body {
-    background: rgb(255,255,255);
-    background: linear-gradient(342deg, rgba(255,255,255,1) 1%, rgba(239,237,231,1) 21%, rgba(165,164,164,1) 100%);
+    background-color: #cdd9ee;
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
 }
@@ -16,6 +15,7 @@ body {
     margin: 50px auto;
     padding: 50px;
     background-color: #fbfbfb;
+    box-shadow: 10px 10px 5px 0px rgba(196,196,196,0.5);
 }
 
 h1 {
