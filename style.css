@@ -20,9 +20,14 @@ body {
 
 h1 {
     padding-bottom: 15px;
+    text-align: center;
 }
 
 #todo_list {
     padding-top: 15px;
     padding-inline-start: 40px;
+}
+
+#todo_list li {
+    margin: 5px 0;
 }

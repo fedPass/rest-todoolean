@@ -14,14 +14,32 @@ $(document).ready(function(){
         var typed_todo = $('#new-text-todo').val().trim();
         //e resetto il campo
         $('#new-text-todo').val('');
-
         //se il campo è vuoto do un avviso di errore
         if (typed_todo.length == 0) {
             alert('Inserisci un testo')
         } else {
-            //inserisci nuovo todo
+            //altrimenti inserisci nuovo todo
             crea_todo(typed_todo);
         }
+    });
+
+    //quando clicco su icona bidone DELETE todo
+    $(document).on('click', '.delete-todo', function(){
+        //recuperare l'id del todo selezionato
+        var todo_id = $(this).parent().attr('data-todo_id');
+        console.log(todo_id);
+        // chiamata ajax in DELETE per cancellare id selezionato
+        $.ajax({
+            'url': api_url + '/' + todo_id,
+            'method': 'DELETE',
+            'success': function(){
+                //stampo lista aggiornata
+                stampa_todos();
+            },
+            'error': function(){
+                alert('Error');
+            }
+        });
     });
 
     function crea_todo(new_todo) {
