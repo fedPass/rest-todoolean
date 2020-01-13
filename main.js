@@ -1,8 +1,6 @@
 $(document).ready(function(){
 
     var api_url = 'http://157.230.17.132:3017/todos';
-
-    //predispondo le variabili per i template
     var template_html = $('#todo-template').html();
     var template_function = Handlebars.compile(template_html);
 
@@ -27,9 +25,30 @@ $(document).ready(function(){
     $(document).on('click', '.delete-todo', function(){
         //recuperare l'id del todo selezionato
         var todo_id = $(this).parent().attr('data-todo_id');
-
         cancella_todo(todo_id);
     });
+
+    //quando clicco su modifica
+    $(document).on('click', '.edit-todo', function(){
+        //recuperare l'id del todo selezionato
+        var todo_id = $(this).parent().attr('data-todo_id');
+        //appare icona SALVA
+        $(this).parent().find('.save-todo').show();
+        //scompare icona MODIFICA
+        $(this).parent().find('.edit-todo').hide();
+        //scompare lo span che contiene todo
+        $(this).parent().find('.text-todo').hide();
+        //appare campo input per inserire testo
+        $(this).parent().find('.input-edit-todo').show();
+    });
+
+    //quando clicco su SALVA
+    //scompare icona SALVA
+    //compare icona MODIFICA
+    //leggo nuovo testo
+    //chiamata ajax con PUT a cui passo id e testo per modificarlo
+
+    //---------FUNZIONI--------------
 
     function cancella_todo(id_todo){
         // chiamata ajax in DELETE per cancellare id selezionato

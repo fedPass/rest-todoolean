@@ -15,14 +15,17 @@
             <h1>Lista To-do</h1>
             <div id="insert_new">
                 <input id="new-text-todo" type="text" value="" placeholder="Inserisci testo...">
-                <button id="new-todo-button">Inserisci</button>
+                <button id="new-todo-button"><i class="fas fa-plus"></i></button>
             </div>
             <ul id="todo_list"></ul>
         </div>
         <script id="todo-template" type="text/x-handlebars-template">
             <li data-todo_id="{{ todo_id }}">
                 <i class="fas fa-trash-alt delete-todo"></i>
-                {{todo_text}}
+                <i class="fas fa-edit edit-todo"></i>
+                <i class="fas fa-save save-todo"></i>
+                <span class="text-todo">{{todo_text}}</span>
+                <input class="input-edit-todo" type="text" name="" value="{{todo_text}}">
             </li>
         </script>
         <script src="main.js" charset="utf-8"></script>

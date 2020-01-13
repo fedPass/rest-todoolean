@@ -10,6 +10,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+i {
+    color: #3333c9;
+}
+
 .container {
     width: 60%;
     margin: 50px auto;
@@ -21,6 +25,17 @@ body {
 h1 {
     padding-bottom: 15px;
     text-align: center;
+    color: #3333c9;
+}
+
+#insert_new {
+    text-align: center;
+}
+
+#new-todo-button {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
 }
 
 #todo_list {
@@ -30,4 +45,8 @@ h1 {
 
 #todo_list li {
     margin: 5px 0;
+}
+
+.save-todo, .input-edit-todo {
+    display: none;
 }
