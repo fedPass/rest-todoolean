@@ -27,10 +27,14 @@ $(document).ready(function(){
     $(document).on('click', '.delete-todo', function(){
         //recuperare l'id del todo selezionato
         var todo_id = $(this).parent().attr('data-todo_id');
-        console.log(todo_id);
+
+        cancella_todo(todo_id);
+    });
+
+    function cancella_todo(id_todo){
         // chiamata ajax in DELETE per cancellare id selezionato
         $.ajax({
-            'url': api_url + '/' + todo_id,
+            'url': api_url + '/' + id_todo,
             'method': 'DELETE',
             'success': function(){
                 //stampo lista aggiornata
@@ -40,7 +44,7 @@ $(document).ready(function(){
                 alert('Error');
             }
         });
-    });
+    }
 
     function crea_todo(new_todo) {
         //chiamata ajax in POST per salvare il nuovo todo
