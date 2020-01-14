@@ -13,6 +13,7 @@ body {
 i {
     color: #3333c9;
     margin: 5px;
+    cursor: pointer;
 }
 
 .container {
@@ -66,4 +67,12 @@ h1 {
     display: inline-block;
     width: 80%;
     padding-bottom: 6px;
+}
+
+.done {
+    color: red;
+}
+
+.done span{
+    text-decoration: line-through;
 }

@@ -78,13 +78,42 @@ $(document).ready(function(){
         modifica_todo(todo_id, edit_todo);
     });
 
+    //quando faccio click sullo span si aggiunge/toglie la classe done
+    $('#todo_list').on('click','.text-todo', function(){
+        //verifico se l'elemento ha già la classe done
+        var done_todo = $(this).parent().hasClass('done');
+        //leggo dal data l'id per passarlo all api_url
+        var id_todo = $(this).parent().attr('data-todo_id');
+        verifica_stato(id_todo, done_todo);
+    });
+
     //---------FUNZIONI--------------
+
+    function verifica_stato(id_todo, done_todo){
+        //facciamo una chiamata ajax in PATCH per scrivere la proprietà done
+        $.ajax({
+            'url': api_url + id_todo,
+            'method':'PATCH',
+            'data': {
+                //if ternario (se done = false(0) allora done=1 (mettilo fatto), altrimenti done = true(1) mettilo a 0 )
+                'done': (done_todo == false ? 1 : 0)
+            },
+            'success': function(){
+                //stampo lista aggiornata
+                stampa_todos();
+            },
+            'error': function(){
+                alert('Error');
+            }
+        });
+    }
 
     function modifica_todo(id_todo, newText_todo){
         //chiamata ajax con PUT a cui passo id e testo per modificarlo
+        //usiamo adesso PATCH per non sovrascrivere
         $.ajax({
             'url': api_url + id_todo,
-            'method':'PUT',
+            'method':'PATCH',
             'data': {
                 'text': newText_todo
             },
@@ -148,10 +177,15 @@ $(document).ready(function(){
                     var testo_todo = todo_current.text;
                     // e l'id
                     var id_todo = todo_current.id;
+                    //verifico lo stato della proprietà bidone
+                    var fatto = todo_current.done;
                     // mi salvo le variabili per il template
                     var context = {
                         'todo_id': id_todo,
-                        'todo_text': testo_todo
+                        'todo_text': testo_todo,
+                        //la variabile fatto contiene 1? se si aggiungi done se no niente
+                        //if compatta
+                        'done': (fatto == 1 ? 'done' : '')
                     }
                     //compilo il template
                     var html_finale = template_function(context);

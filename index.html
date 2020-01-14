@@ -22,7 +22,7 @@
             </div>
         </div>
         <script id="todo-template" type="text/x-handlebars-template">
-            <li data-todo_id="{{ todo_id }}">
+            <li class="{{done}}" data-todo_id="{{ todo_id }}">
                 <span class="text-todo">{{todo_text}}</span>
                 <input class="input-edit-todo" type="text" name="" value="{{todo_text}}">
                 <i class="fas fa-edit edit-todo"></i>
