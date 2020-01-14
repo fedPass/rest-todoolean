@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var api_url = 'http://157.230.17.132:3017/todos';
+    var api_url = 'http://157.230.17.132:3017/todos/';
     var template_html = $('#todo-template').html();
     var template_function = Handlebars.compile(template_html);
 
@@ -83,7 +83,7 @@ $(document).ready(function(){
     function modifica_todo(id_todo, newText_todo){
         //chiamata ajax con PUT a cui passo id e testo per modificarlo
         $.ajax({
-            'url': api_url + '/' + id_todo,
+            'url': api_url + id_todo,
             'method':'PUT',
             'data': {
                 'text': newText_todo
@@ -101,7 +101,7 @@ $(document).ready(function(){
     function cancella_todo(id_todo){
         // chiamata ajax in DELETE per cancellare id selezionato
         $.ajax({
-            'url': api_url + '/' + id_todo,
+            'url': api_url +  id_todo,
             'method': 'DELETE',
             'success': function(){
                 //stampo lista aggiornata
@@ -119,7 +119,7 @@ $(document).ready(function(){
             'url': api_url,
             'method': 'POST',
             'data': {
-                //gli passo la chiave da inserire
+                //gli passo il testo da inserire
                 'text': new_todo
             },
             'success': function(){

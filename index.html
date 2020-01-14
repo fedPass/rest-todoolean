@@ -23,11 +23,11 @@
         </div>
         <script id="todo-template" type="text/x-handlebars-template">
             <li data-todo_id="{{ todo_id }}">
-                <i text="Cancella" class="fas fa-trash-alt delete-todo"></i>
-                <i class="fas fa-edit edit-todo"></i>
-                <i class="fas fa-save save-todo"></i>
                 <span class="text-todo">{{todo_text}}</span>
                 <input class="input-edit-todo" type="text" name="" value="{{todo_text}}">
+                <i class="fas fa-edit edit-todo"></i>
+                <i class="fas fa-save save-todo"></i>
+                <i text="Cancella" class="fas fa-trash-alt delete-todo"></i>
             </li>
         </script>
         <script src="main.js" charset="utf-8"></script>
