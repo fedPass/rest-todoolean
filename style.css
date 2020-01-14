@@ -63,10 +63,15 @@ h1 {
     display: none;
 }
 
+.input-edit-todo {
+    width: 256px;
+}
+
 .text-todo {
     display: inline-block;
     width: 80%;
     padding-bottom: 6px;
+    cursor: pointer;
 }
 
 .done {
