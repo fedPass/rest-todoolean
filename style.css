@@ -70,9 +70,14 @@ h1 {
 }
 
 .done {
-    color: #3333c9;
+    color: #3333c9
+    ;
 }
 
 .done span{
     text-decoration: line-through;
+}
+
+.done i {
+    display: none;
 }
